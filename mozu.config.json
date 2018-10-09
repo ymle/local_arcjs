@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://home.mozu.com",
+  "developerAccountId": 6596,
+  "developerAccount": {
+    "emailAddress": "Thang.Vu@kibocommerce.com",
+	"password": "vdThang308"
+  },
+  "workingApplicationKey": "KMS.ThangArcTest.1.0.0.Release"
+}
