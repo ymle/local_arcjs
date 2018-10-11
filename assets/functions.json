@@ -11,6 +11,16 @@
       "actionId": "http.commerce.catalog.storefront.shipping.requestRates.before"
     },
     {
+      "id": "http.commerce.customer.accounts.addAccount.before",
+      "virtualPath": "./dist\\commerce.customer.manifest.all.js",
+      "actionId": "http.commerce.customer.accounts.addAccount.before"
+    },
+    {
+      "id": "http.commerce.customer.accounts.addAccount.after",
+      "virtualPath": "./dist\\commerce.customer.manifest.all.js",
+      "actionId": "http.commerce.customer.accounts.addAccount.after"
+    },
+    {
       "id": "embedded.platform.applications.install",
       "virtualPath": "./dist\\platform.applications.manifest.all.js",
       "actionId": "embedded.platform.applications.install"
