@@ -72,6 +72,8 @@ module.exports = function(context, callback) {
         console.error(err);
         callback();
       });
+    } else {
+      console.info("Customer " + account.FirstName + " is not eligible to be added to the student segment");
     }
   }
 };
