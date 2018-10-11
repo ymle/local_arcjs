@@ -34,24 +34,33 @@ module.exports = function(context, callback) {
   var customerSegmentResource = CustomerSegmentFactory(context.apiContext);
   customerSegmentResource.context['user-claims'] = null;
 
-  if(context.response.body.customerAccount && context.configuration.customerSegmentFilterConditions){
-    var account = context.response.body.customerAccount;
-    var customerSegmentFilterConditions = context.configuration.customerSegmentFilterConditions;
-    console.info("account: " + JSON.stringify(account));
-    console.info("customerSegmentFilterConditions: " + JSON.stringify(customerSegmentFilterConditions));
+  if(context.response.body.customerAccount
+    && context.configuration.eligibleCustomer
+    && context.configuration.customerSegmentFilterConditions){
 
-    customerSegmentResource.getSegments({
-      filter: customerSegmentFilterConditions
-    }).then(function (customerSegments) {
+    var account = context.response.body.customerAccount;
+    var eligibleCustomer = context.configuration.eligibleCustomer;
+    console.info("account: " + JSON.stringify(account));
+    console.info("eligibleCustomer: " + JSON.stringify(eligibleCustomer));
+
+    if(account.FirstName.toUpperCase() === eligibleCustomer.toUpperCase()){
+
+      var customerSegmentFilterConditions = context.configuration.customerSegmentFilterConditions;
+      console.info("customerSegmentFilterConditions: " + JSON.stringify(customerSegmentFilterConditions));
+
+      customerSegmentResource.getSegments({
+        filter: customerSegmentFilterConditions
+      })
+      .then(function (customerSegments) {
         if(_.first(customerSegments.items)){
           var studentSegment = _.first(customerSegments.items);
           console.info("studentSegment: " + JSON.stringify(studentSegment));
           var accountId = [account.id];
           return customerSegmentResource.addSegmentAccounts({
-              id: studentSegment.id
-            },{
-              body: accountId
-            });
+            id: studentSegment.id
+          },{
+            body: accountId
+          });
         }
       })
       .then(function (response) {
@@ -64,4 +73,5 @@ module.exports = function(context, callback) {
         callback();
       });
     }
+  }
 };
