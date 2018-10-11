@@ -34,9 +34,7 @@ module.exports = function(context, callback) {
   var customerSegmentResource = CustomerSegmentFactory(context.apiContext);
   customerSegmentResource.context['user-claims'] = null;
 
-  if(context.response.body.customerAccount
-    && context.configuration.eligibleCustomer
-    && context.configuration.customerSegmentFilterConditions){
+  if(context.response.body.customerAccount && context.configuration.eligibleCustomer && context.configuration.customerSegmentFilterConditions){
 
     var account = context.response.body.customerAccount;
     var eligibleCustomer = context.configuration.eligibleCustomer;
