@@ -21,6 +21,16 @@
       "actionId": "http.commerce.customer.accounts.addAccount.after"
     },
     {
+      "id": "http.commerce.customer.accounts.addAccountAndLogin.before",
+      "virtualPath": "./dist\\commerce.customer.manifest.all.js",
+      "actionId": "http.commerce.customer.accounts.addAccountAndLogin.before"
+    },
+    {
+      "id": "http.commerce.customer.accounts.addAccountAndLogin.after",
+      "virtualPath": "./dist\\commerce.customer.manifest.all.js",
+      "actionId": "http.commerce.customer.accounts.addAccountAndLogin.after"
+    },
+    {
       "id": "embedded.platform.applications.install",
       "virtualPath": "./dist\\platform.applications.manifest.all.js",
       "actionId": "embedded.platform.applications.install"

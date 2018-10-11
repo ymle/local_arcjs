@@ -22,6 +22,6 @@
  */
 
 module.exports = function(context, callback) {
-    console.log("context before: " + JSON.stringify(context));
-    callback();
+  console.log("context before: " + JSON.stringify(context));
+  callback();
 };

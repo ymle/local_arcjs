@@ -22,6 +22,9 @@
  */
 
 module.exports = function(context, callback) {
-    console.log("context before: " + JSON.stringify(context));
-    callback();
+  console.log("context before: " + JSON.stringify(context));
+  console.info("Hello from Add Account and Login!");
+  console.info("Request...");
+  console.info(context.request.body);
+  callback();
 };
